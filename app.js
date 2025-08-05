@@ -12,6 +12,7 @@ function agregarAmigo(){
     } else {
         nombreAmigos.push(nombre);
         limpiarCajaTexto();
+        mostrarListaAmigos();
     }
 }
 
@@ -20,3 +21,14 @@ function limpiarCajaTexto(){
 }
 console.log(nombreAmigos);
 
+
+function mostrarListaAmigos(){
+    let amigosLista = document.getElementById('listaAmigos');
+    amigosLista.innerHTML = ''; // limpiar la lista antes de mostrar los nuevos amigos
+    // Recorremos el array de los nombres de amigos y creamos un nuevo elemento <li> para cada uno
+    for (let i = 0; i < nombreAmigos.length; i++){
+        let nuevoElemento = document.createElement('li');
+        nuevoElemento.textContent = nombreAmigos[i];
+        amigosLista.appendChild(nuevoElemento);
+    }
+}
